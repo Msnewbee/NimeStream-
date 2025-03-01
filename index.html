@@ -41,16 +41,22 @@
     .episode-list a:hover, .episode-list a.active { background: #ff4500; transform: scale(1.05); }
     .video-container iframe { width: 100%; max-width: 900px; height: 506px; border: none; }
     .resume-btn { display: block; margin: 20px auto; background: #28a745; color: white; padding: 10px 20px; text-align: center; border-radius: 5px; text-decoration: none; }
+    
+    /* Responsif untuk layar kecil */
+    @media (max-width: 600px) {
+      .video-container iframe { max-width: 100%; height: auto; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">NimeStream - Streaming Anime</div>
     
-    <!-- Informasi dasar anime (umum) -->
+    <!-- Informasi dasar anime (poster) -->
     <div class="anime-details">
       <div class="anime-image">
-        <img src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Solo Leveling Poster" loading="lazy">
+        <!-- Gambar default untuk Season 1 -->
+        <img id="anime-poster" src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Solo Leveling Poster" loading="lazy">
       </div>
       <div class="anime-info">
         <h2>Ore dake Level Up na Ken [Solo Leveling] Sub Indo</h2>
@@ -66,9 +72,9 @@
       <button id="btn-s2">Season 2</button>
     </div>
     
-    <!-- Informasi Season (akan berubah sesuai season yang dipilih) -->
+    <!-- Informasi Season -->
     <div class="season-info" id="season-info">
-      <!-- Season 1 info default -->
+      <!-- Info Season 1 default -->
       <h3>Season 1</h3>
       <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>
     </div>
@@ -78,10 +84,10 @@
     
     <!-- Pemutar Video -->
     <div class="video-container">
-      <iframe id="anime-player" allowfullscreen loading="lazy"></iframe>
+      <iframe id="anime-player" allowfullscreen loading="lazy" allow="autoplay;"></iframe>
     </div>
     
-    <!-- Navigasi Episode Sebelumnya/ Berikutnya -->
+    <!-- Navigasi Episode -->
     <div class="episode-nav">
       <a id="prev-episode" href="#" class="btn">◀ Episode Sebelumnya</a>
       <a id="next-episode" href="#" class="btn">Episode Berikutnya ▶</a>
@@ -95,6 +101,10 @@
   </div>
   
   <script>
+    // URL poster untuk masing-masing season
+    var poster_S1 = "https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg";
+    var poster_S2 = "https://sololeveling-anime.net/assets/img/top/kv_shun.png";
+    
     // Episode links untuk Season 1
     var episodeLinks_S1 = {
       '1': 'https://mega.nz/embed/wVQESDiL#rWrzrxNp6Ip17-s-dICc2iaMr73T5Pic5Ep563F3vlY!1a',
@@ -103,7 +113,7 @@
       '4': 'https://mega.nz/embed/5UQCmIYR#4Lsgd_7srCe5I40zUoAqYruTYSkh6RumVAOocKoD5-g!1a',
       '5': 'https://mega.nz/embed/sEwWjTwZ#MJwYHtqIN7hp_yXCqeIyqACGZtIOVZ-YrKeoGesmBpA!1a',
       '6': 'https://mega.nz/embed/hYxzCLBQ#hfwORuSgBA7kw5_YDlqNQf-YPJhuCbc08jzzzRHQXgA!1a',
-      // Episode 7 dengan link baru sesuai permintaan:
+      // Episode 7 dengan link baru
       '7': 'https://mega.nz/embed/xYxjCCKK#IXwLYHqhopYbAH6VZ4ZVv-9RxuoE0OTBgB5VkZicwJA!1a',
       '8': 'https://mega.nz/embed/cdAzCbzY#I5LwEY-QLsk6XkgJ4Fd_fWE403R_wZV6t-lOGb5-lQM!1a',
       '9': 'https://mega.nz/embed/5VxjxJ7A#mOLObws05S43C2hxxoiCAJqkJs-O3ro1LIXdoMP9xeo!1a',
@@ -192,19 +202,21 @@
       });
     }
     
-    // Fungsi untuk mengupdate informasi season
+    // Fungsi untuk mengupdate informasi season dan gambar poster
     function updateSeasonInfo() {
       let infoDiv = document.getElementById("season-info");
+      let posterImg = document.getElementById("anime-poster");
+      
       if (currentSeason === 'S1') {
         infoDiv.innerHTML = `<h3>Season 1</h3>
           <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>`;
+        posterImg.src = poster_S1;
       } else {
-        // Informasi untuk Season 2 dengan gambar embed
         infoDiv.innerHTML = `<h3>Season 2: Arise from the Shadow</h3>
-          <img src="https://sololeveling-anime.net/assets/img/top/kv_shun.png" alt="Season 2 Key Visual" loading="lazy">
           <p>Episode: 13 Episode (S2) | Premiere: 5 Januari 2025</p>
           <p>Opening: "Reawaker" oleh LiSA (feat. Felix dari Stray Kids) | Ending: "Un-Apex" oleh TK dari Ling Tosite Sigure</p>
           <p>Season 2 melanjutkan perjalanan Sung Jinwoo dengan kekuatan baru dan menghadapi ancaman baru, termasuk adaptasi arc Jeju Island.</p>`;
+        posterImg.src = poster_S2;
       }
     }
     
