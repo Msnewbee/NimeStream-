@@ -3,128 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nonton streaming anime subtitle Indonesia dengan kualitas HD tanpa iklan pop-up!">
-    <meta name="keywords" content="Nonton anime, Solo Leveling, Demon Slayer, Streaming anime sub indo, anime terbaru">
-    <title>NimeStream - Streaming Anime</title>
-
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1357574968133580" crossorigin="anonymous"></script>
-
-    <!-- Link ke file CSS eksternal -->
+    <title>NimeStream - Anime Sub Indo</title>
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="NimeStream - Streaming Anime">
-    <meta property="og:description" content="Nonton streaming anime subtitle Indonesia dengan kualitas HD tanpa iklan pop-up!">
-    <meta property="og:image" content="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg">
-    <meta property="og:type" content="website">
-
-    <!-- Schema.org Markup for VideoObject -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "VideoObject",
-        "name": "Solo Leveling Subtitle Indonesia",
-        "description": "Nonton streaming Solo Leveling dengan kualitas HD tanpa iklan pop-up.",
-        "thumbnailUrl": "https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg",
-        "uploadDate": "2024-01-01",
-        "embedUrl": "https://www.example.com/embed/videoID",
-        "publisher": {
-            "@type": "Organization",
-            "name": "NimeStream",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://example.com/logo.png"
-            }
-        }
-    }
-    </script>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>NimeStream - Streaming Anime</h1>
+            <h1>NimeStream</h1>
         </div>
     </header>
 
     <nav>
         <div class="container">
-            <!-- Menu Pemilihan Anime -->
-            <div class="anime-selection" style="text-align: center; margin-bottom: 20px;">
-                <button id="btn-solo" class="active">Solo Leveling</button>
-                <button id="btn-ds">Demon Slayer</button>
+            <div class="anime-grid">
+                <div class="anime-card active" data-anime="solo">
+                    <img src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" 
+                         alt="Solo Leveling" 
+                         class="anime-thumb">
+                    <div class="anime-label">Solo Leveling</div>
+                </div>
+                
+                <div class="anime-card" data-anime="ds">
+                    <img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg" 
+                         alt="Demon Slayer" 
+                         class="anime-thumb">
+                    <div class="anime-label">Demon Slayer</div>
+                </div>
             </div>
-            <!-- Season Selector -->
-            <button id="btn-s1" class="active">Season 1</button>
-            <button id="btn-s2">Season 2</button>
+
+            <div class="season-selector">
+                <button class="season-btn active" data-season="S1">Season 1</button>
+                <button class="season-btn" data-season="S2">Season 2</button>
+            </div>
         </div>
     </nav>
 
     <main>
         <div class="container">
-            <!-- Informasi Dasar Anime -->
-            <div class="anime-details">
-                <div class="anime-image">
-                    <img id="anime-poster" src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Solo Leveling Poster" loading="lazy">
+            <section class="anime-info">
+                <img id="anime-poster" 
+                     src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" 
+                     alt="Poster Anime">
+                <div class="anime-details">
+                    <h2 id="anime-title">Solo Leveling</h2>
+                    <div class="meta-info">
+                        <span class="genre">Aksi, Fantasi</span>
+                        <span class="rating">⭐ 8.39</span>
+                    </div>
                 </div>
-                <div class="anime-info">
-                    <h2>Ore dake Level Up na Ken [Solo Leveling] Sub Indo</h2>
-                    <p>Genre: Aksi, Fantasi</p>
-                    <p>Rating: ⭐ 8.39</p>
+            </section>
+
+            <section class="video-section">
+                <div class="video-container" id="video-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Memuat Video...</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Informasi Season -->
-            <div class="season-info" id="season-info">
-                <h3>Season 1</h3>
-                <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>
-            </div>
+                <div class="episode-nav">
+                    <button class="nav-btn" id="prev-episode">◀ Sebelumnya</button>
+                    <button class="nav-btn" id="next-episode">Berikutnya ▶</button>
+                </div>
+            </section>
 
-            <!-- Tombol Resume Episode -->
-            <a id="resume-episode" class="resume-btn" href="#">🔄 Lanjutkan Episode Terakhir</a>
-
-            <!-- Header Video Episode -->
-            <h2 id="video-episode-header" style="display: none; text-align: center;">Video Episode</h2>
-
-            <!-- Pemutar Video Episode -->
-            <div class="video-container">
-                <iframe id="anime-player" src="https://www.example.com/embed/videoID" allowfullscreen loading="lazy"></iframe>
-            </div>
-
-            <!-- Unit Iklan Google AdSense -->
-            <div class="ads-container">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1357574968133580"
-                     data-ad-slot="1234567890"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-
-            <!-- Navigasi Episode -->
-            <div class="episode-nav">
-                <a id="prev-episode" href="#" class="btn">◀ Episode Sebelumnya</a>
-                <a id="next-episode" href="#" class="btn">Episode Berikutnya ▶</a>
-            </div>
-
-            <h2>Daftar Episode</h2>
-            <div class="search-box">
-                <input type="text" id="search-episode" placeholder="Cari episode...">
-            </div>
-            <div class="episode-list" id="episode-list"></div>
+            <section class="episode-list-section">
+                <div class="search-box">
+                    <input type="text" id="search-episode" placeholder="Cari episode...">
+                </div>
+                <div class="episode-grid" id="episode-list"></div>
+            </section>
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 NimeStream. All rights reserved.</p>
+            <p>© 2024 NimeStream</p>
         </div>
     </footer>
 
-    <!-- Link ke file JavaScript eksternal -->
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
