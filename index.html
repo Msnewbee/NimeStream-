@@ -26,7 +26,7 @@
     }
     .season-info { text-align: center; margin-bottom: 20px; }
     .season-info img { width: 100%; max-width: 600px; border-radius: 10px; margin-bottom: 10px; }
-    .video-container { text-align: center; }
+    .video-container { text-align: center; margin-bottom: 20px; }
     .episode-nav { display: flex; justify-content: space-between; margin-top: 10px; }
     .btn { background: #ff4500; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: 0.3s ease-in-out; }
     .btn:hover { background: #ff5722; }
@@ -41,7 +41,6 @@
     .episode-list a:hover, .episode-list a.active { background: #ff4500; transform: scale(1.05); }
     .video-container iframe { width: 100%; max-width: 900px; height: 506px; border: none; }
     .resume-btn { display: block; margin: 20px auto; background: #28a745; color: white; padding: 10px 20px; text-align: center; border-radius: 5px; text-decoration: none; }
-    
     /* Responsif untuk layar kecil */
     @media (max-width: 600px) {
       .video-container iframe { max-width: 100%; height: auto; }
@@ -55,7 +54,7 @@
     <!-- Informasi dasar anime (poster) -->
     <div class="anime-details">
       <div class="anime-image">
-        <!-- Gambar default untuk Season 1 -->
+        <!-- Gambar poster akan berubah sesuai season -->
         <img id="anime-poster" src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Solo Leveling Poster" loading="lazy">
       </div>
       <div class="anime-info">
@@ -79,10 +78,16 @@
       <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>
     </div>
     
+    <!-- Bagian Trailer (hanya untuk Season 2) -->
+    <div class="video-container" id="season2-trailer" style="display: none;">
+      <h4>Trailer Season 2</h4>
+      <iframe width="640" height="360" src="https://www.youtube.com/embed/KzX3EnACpFc?autoplay=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
     <!-- Tombol Resume Episode -->
     <a id="resume-episode" class="resume-btn" href="#">🔄 Lanjutkan Episode Terakhir</a>
     
-    <!-- Pemutar Video -->
+    <!-- Pemutar Video Episode -->
     <div class="video-container">
       <iframe id="anime-player" allowfullscreen loading="lazy" allow="autoplay;"></iframe>
     </div>
@@ -202,21 +207,24 @@
       });
     }
     
-    // Fungsi untuk mengupdate informasi season dan gambar poster
+    // Fungsi untuk mengupdate informasi season, poster, dan menampilkan trailer khusus Season 2
     function updateSeasonInfo() {
       let infoDiv = document.getElementById("season-info");
       let posterImg = document.getElementById("anime-poster");
+      let trailerDiv = document.getElementById("season2-trailer");
       
       if (currentSeason === 'S1') {
         infoDiv.innerHTML = `<h3>Season 1</h3>
           <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>`;
         posterImg.src = poster_S1;
+        trailerDiv.style.display = "none";  // Sembunyikan trailer Season 2
       } else {
         infoDiv.innerHTML = `<h3>Season 2: Arise from the Shadow</h3>
           <p>Episode: 13 Episode (S2) | Premiere: 5 Januari 2025</p>
           <p>Opening: "Reawaker" oleh LiSA (feat. Felix dari Stray Kids) | Ending: "Un-Apex" oleh TK dari Ling Tosite Sigure</p>
           <p>Season 2 melanjutkan perjalanan Sung Jinwoo dengan kekuatan baru dan menghadapi ancaman baru, termasuk adaptasi arc Jeju Island.</p>`;
         posterImg.src = poster_S2;
+        trailerDiv.style.display = "block";  // Tampilkan trailer Season 2
       }
     }
     
