@@ -3,27 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NimeStream - Beranda</title>
-    <link rel="stylesheet" href="/style.css">
+    <meta name="description" content="Nonton streaming Solo Leveling subtitle Indonesia kualitas HD 1080p, 720p, 480p dengan nyaman tanpa iklan pop-up!">
+    <meta name="keywords" content="Nonton anime, Solo Leveling, Streaming anime sub indo, anime terbaru">
+    <title>NimeStream - Streaming Anime</title>
+    <style>
+        body { background-color: #121212; color: white; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        .header { text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 20px; }
+        .video-container { text-align: center; }
+        .episode-nav { display: flex; justify-content: space-between; margin-top: 10px; }
+        .btn { background: #ff4500; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: 0.3s ease-in-out; }
+        .btn:hover { background: #ff5722; }
+        .anime-details { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; }
+        .anime-image img { width: 200px; border-radius: 10px; }
+        .anime-info { flex-grow: 1; }
+        .rating { background: #222; padding: 10px; border-radius: 5px; display: inline-block; }
+        .search-box { margin: 20px 0; text-align: center; }
+        .search-box input { padding: 10px; width: 80%; max-width: 400px; border-radius: 5px; border: none; }
+        .episode-list { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .episode-list a { background: #333; color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; transition: 0.3s ease-in-out; }
+        .episode-list a:hover, .episode-list a.active { background: #ff4500; transform: scale(1.05); }
+        .video-container iframe { width: 100%; max-width: 900px; height: 506px; border: none; }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>NimeStream</h1>
-        <h2>Daftar Anime</h2>
-        <ul class="anime-list">
-            <li class="anime-item">
-                <img src="/public/images/solo-leveling.jpg" alt="Solo Leveling">
-                <a href="anime/solo-leveling.html">Solo Leveling</a>
-            </li>
-            <li class="anime-item">
-                <img src="/public/images/attack-on-titan.jpg" alt="Attack on Titan">
-                <a href="anime/attack-on-titan.html">Attack on Titan</a>
-            </li>
-            <li class="anime-item">
-                <img src="/public/images/demon-slayer.jpg" alt="Demon Slayer">
-                <a href="anime/demon-slayer.html">Demon Slayer</a>
-            </li>
-        </ul>
+        <div class="header">NimeStream - Streaming Anime</div>
+        
+        <div class="anime-details">
+            <div class="anime-image">
+                <img src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Solo Leveling Poster" loading="lazy">
+            </div>
+            <div class="anime-info">
+                <h2>Ore dake Level Up na Ken [Solo Leveling] Sub Indo</h2>
+                <p><strong>Genre:</strong> Aksi, Fantasi, Isekai, Petualangan</p>
+                <p><strong>Rilis:</strong> Jan 11, 2024</p>
+                <p><strong>Episode:</strong> 12 Episode (S1)</p>
+                <p><strong>Studio:</strong> A-1 Pictures</p>
+                <div class="rating">⭐ 8.39</div>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <iframe id="anime-player" allowfullscreen loading="lazy"></iframe>
+        </div>
+
+        <div class="episode-nav">
+            <a id="prev-episode" href="#" class="btn">◀ Episode Sebelumnya</a>
+            <a id="next-episode" href="#" class="btn">Episode Berikutnya ▶</a>
+        </div>
+
+        <h2>Solo Leveling - Daftar Episode</h2>
+        <div class="search-box">
+            <input type="text" id="search-episode" placeholder="Cari episode...">
+        </div>
+        <div class="episode-list" id="episode-list">
+        </div>
     </div>
+    <script>
+        var episodeLinks = {
+            '1': 'https://mega.nz/embed/wVQESDiL#rWrzrxNp6Ip17-s-dICc2iaMr73T5Pic5Ep563F3vlY',
+            '2': 'https://mega.nz/embed/gA5VnRBL#7RQII5KdmoV-Tj4OwaBOJ3ncg7q70Et7K86OE4WLPA0!1a',
+            '3': 'https://mega.nz/embed/9d43yZgA#JfeYXtCuhCNDbxejLHRDkeTdW3nRK1Xz5RC1sAowfL4!1a',
+            '4': 'https://mega.nz/embed/5UQCmIYR#4Lsgd_7srCe5I40zUoAqYruTYSkh6RumVAOocKoD5-g!1a',
+            '5': 'https://mega.nz/embed/sEwWjTwZ#MJwYHtqIN7hp_yXCqeIyqACGZtIOVZ-YrKeoGesmBpA!1a',
+            '6': 'https://mega.nz/embed/hYxzCLBQ#hfwORuSgBA7kw5_YDlqNQf-YPJhuCbc08jzzzRHQXgA!1a',
+            '7': 'https://mega.nz/embed/xYxjCCKK#IXwLYHqhopYbAH6VZ4ZVv-9RxuoE0OTBgB5VkZicwJA!1a',
+            '8': 'https://mega.nz/embed/cdAzCbzY#I5LwEY-QLsk6XkgJ4Fd_fWE403R_wZV6t-lOGb5-lQM!1a',
+            '9': 'https://mega.nz/embed/5VxjxJ7A#mOLObws05S43C2hxxoiCAJqkJs-O3ro1LIXdoMP9xeo!1a'
+        };
+        
+        function loadEpisodeList() {
+            let listContainer = document.getElementById("episode-list");
+            Object.keys(episodeLinks).forEach(num => {
+                let link = document.createElement("a");
+                link.href = `?episode=${num}`;
+                link.textContent = `S1 - Episode ${num}`;
+                listContainer.appendChild(link);
+            });
+        }
+        
+        document.getElementById("search-episode").addEventListener("input", function() {
+            let query = this.value.toLowerCase();
+            document.querySelectorAll(".episode-list a").forEach(link => {
+                link.style.display = link.textContent.toLowerCase().includes(query) ? "block" : "none";
+            });
+        });
+        
+        loadEpisodeList();
+    </script>
 </body>
 </html>
