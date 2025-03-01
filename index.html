@@ -1,45 +1,65 @@
-// Filter
-const genreFilter = document.getElementById('genre');
-const seasonFilter = document.getElementById('season');
-const typeFilter = document.getElementById('tipe');
-const filterButton = document.getElementById('filter-button');
-const animeItems = document.querySelectorAll('.anime-item');
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NimeStream - Beranda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Animasu</div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Cari anime di v9.animasu.cc">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Lobby</a></li>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Daftar Anime</a></li>
+                    <li><a href="#">Donghua</a></li>
+                    <li><a href="#">Genre</a></li>
+                    <li><a href="#">Karakter</a></li>
+                    <li><a href="#">Jadwal</a></li>
+                    <li><a href="#">Rekomendasi</a></li>
+                    <li><a href="#">Movie</a></li>
+                    <li><a href="#">APK</a></li>
+                    <li><a href="#">Request</a></li>
+                    <li><a href="#">Tonton Nanti</a></li>
+                </ul>
+            </nav>
+        </header>
 
-filterButton.addEventListener('click', () => {
-    const selectedGenre = genreFilter.value;
-    const selectedSeason = seasonFilter.value;
-    const selectedType = typeFilter.value;
+        <div class="filter-section">
+            <div class="filter-dropdown">
+                <label for="genre">Genre:</label>
+                <select id="genre">
+                    <option value="semua">Semua</option>
+                    <option value="aksi">Aksi</option>
+                    <option value="fantasi">Fantasi</option>
+                </select>
+            </div>
+            <div class="filter-dropdown">
+                <label for="season">Season:</label>
+                <select id="season">
+                    <option value="semua">Semua</option>
+                    <option value="2024">2024</option>
+                </select>
+            </div>
+            <button class="filter-button" id="filter-button">Cari Sesuai Kriteria</button>
+        </div>
 
-    animeItems.forEach(item => {
-        const itemGenres = item.dataset.genre.split(' ');
-        const itemSeason = item.dataset.season;
-        const itemType = item.dataset.type; // Tambahkan data-type di HTML
-
-        const genreMatch = selectedGenre === 'semua' || itemGenres.includes(selectedGenre);
-        const seasonMatch = selectedSeason === 'semua' || selectedSeason === itemSeason;
-        const typeMatch = selectedType === 'semua' || selectedType === itemType;
-
-        if (genreMatch && seasonMatch && typeMatch) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-});
-
-// Search
-const searchInput = document.getElementById('search-input');
-
-searchInput.addEventListener('input', () => {
-    const searchTerm = searchInput.value.toLowerCase();
-
-    animeItems.forEach(item => {
-        const animeTitle = item.querySelector('h3').textContent.toLowerCase();
-
-        if (animeTitle.includes(searchTerm)) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-});
+        <div class="anime-list">
+            <div class="anime-item" data-genre="aksi fantasi" data-season="2024">
+                <a href="solo-leveling.html">
+                    <img src="images/solo-leveling.jpg" alt="Solo Leveling" onerror="this.onerror=null; this.src='images/placeholder.jpg'">
+                    <h3>Solo Leveling</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
