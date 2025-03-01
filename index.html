@@ -22,12 +22,29 @@
         .episode-list a { background: #333; color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; transition: 0.3s ease-in-out; }
         .episode-list a:hover, .episode-list a.active { background: #ff4500; transform: scale(1.05); }
         .video-container iframe { width: 100%; max-width: 900px; height: 506px; border: none; }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+            .header { font-size: 24px; }
+            .anime-details { flex-direction: column; align-items: center; }
+            .anime-image img { width: 150px; }
+            .anime-info { text-align: center; }
+            .video-container iframe { height: 300px; }
+        }
+
+        @media (max-width: 480px) {
+            .header { font-size: 20px; }
+            .anime-image img { width: 120px; }
+            .video-container iframe { height: 200px; }
+            .episode-list a { padding: 8px 12px; font-size: 14px; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">NimeStream - Streaming Anime</div>
-        
+
         <div class="anime-details">
             <div class="anime-image">
                 <img src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Solo Leveling Poster" loading="lazy">
@@ -43,7 +60,7 @@
         </div>
 
         <div class="video-container">
-            <iframe id="anime-player" allowfullscreen></iframe>
+            <iframe id="anime-player" allowfullscreen loading="lazy"></iframe>
         </div>
 
         <div class="episode-nav">
@@ -58,32 +75,48 @@
             <a href="?episode=3">S1 - Episode 3</a>
             <a href="?episode=4">S1 - Episode 4</a>
             <a href="?episode=5">S1 - Episode 5</a>
-            <a href="?episode=6">S2 - Episode 1</a>
-            <a href="?episode=7">S2 - Episode 2</a>
-            <a href="?episode=8">S2 - Episode 3</a>
+            <a href="?episode=6">S1 - Episode 6</a>
         </div>
     </div>
     <script>
-        var episodeLinks = {
-            '1': 'https://mega.nz/embed/wVQESDiL#rWrzrxNp6Ip17-s-dICc2iaMr73T5Pic5Ep563F3vlY',
-            '2': 'https://mega.nz/embed/gA5VnRBL#7RQII5KdmoV-Tj4OwaBOJ3ncg7q70Et7K86OE4WLPA0!1a',
-            '3': 'https://mega.nz/embed/YOUR_MEGA_VIDEO_ID_3'
-        };
-        
-        var urlParams = new URLSearchParams(window.location.search);
-        var episode = urlParams.get('episode') || '1';
-        var iframePlayer = document.getElementById('anime-player');
-        iframePlayer.src = episodeLinks[episode] || episodeLinks['1'];
-        
-        document.getElementById('prev-episode').href = `?episode=${Math.max(1, parseInt(episode) - 1)}`;
-        document.getElementById('next-episode').href = `?episode=${Math.min(Object.keys(episodeLinks).length, parseInt(episode) + 1)}`;
+        // Fungsi untuk mendapatkan parameter episode dari URL
+        function getEpisodeFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('episode') || '1';
+        }
 
-        var episodeList = document.querySelectorAll('.episode-list a');
-        episodeList.forEach(link => {
-            if (link.href.includes(`episode=${episode}`)) {
-                link.classList.add('active');
-            }
-        });
-    </script>
-</body>
-</html>
+        // Fungsi untuk mengatur sumber video iframe
+        function setVideoSource(episode) {
+            const episodeLinks = {
+                '1': 'https://mega.nz/embed/wVQESDiL#rWrzrxNp6Ip17-s-dICc2iaMr73T5Pic5Ep563F3vlY',
+                '2': 'https://mega.nz/embed/gA5VnRBL#7RQII5KdmoV-Tj4OwaBOJ3ncg7q70Et7K86OE4WLPA0!1a',
+                '3': 'https://mega.nz/embed/9d43yZgA#JfeYXtCuhCNDbxejLHRDkeTdW3nRK1Xz5RC1sAowfL4!1a',
+                '4': 'https://mega.nz/embed/5UQCmIYR#4Lsgd_7srCe5I40zUoAqYruTYSkh6RumVAOocKoD5-g!1a',
+                '5': 'https://mega.nz/embed/sEwWjTwZ#MJwYHtqIN7hp_yXCqeIyqACGZtIOVZ-YrKeoGesmBpA!1a',
+                '6': 'https://mega.nz/embed/hYxzCLBQ#hfwORuSgBA7kw5_YDlqNQf-YPJhuCbc08jzzzRHQXgA!1a'
+            };
+
+            const iframePlayer = document.getElementById('anime-player');
+            iframePlayer.src = episodeLinks[episode] || episodeLinks['1'];
+        }
+
+        // Fungsi untuk mengatur tautan navigasi episode
+        function setEpisodeNavigation(episode) {
+            const episodeLinks = Object.keys(episodeLinks);
+            const prevEpisode = Math.max(1, parseInt(episode) - 1);
+            const nextEpisode = Math.min(episodeLinks.length, parseInt(episode) + 1);
+
+            document.getElementById('prev-episode').href = `?episode=${prevEpisode}`;
+            document.getElementById('next-episode').href = `?episode=${nextEpisode}`;
+        }
+
+        // Fungsi untuk menandai episode yang aktif di daftar episode
+        function setActiveEpisode(episode) {
+            const episodeList = document.querySelectorAll('.episode-list a');
+            episodeList.forEach(link => {
+                if (link.href.includes(`episode=${episode}`)) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
