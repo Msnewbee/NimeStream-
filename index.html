@@ -3,15 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nonton streaming Solo Leveling subtitle Indonesia kualitas HD 1080p, 720p, 480p dengan nyaman tanpa iklan pop-up!">
+  <meta name="description" content="Nonton streaming Solo Leveling subtitle Indonesia kualitas HD 1080p, 720p, 480p tanpa iklan pop-up!">
   <meta name="keywords" content="Nonton anime, Solo Leveling, Streaming anime sub indo, anime terbaru">
   <title>NimeStream - Streaming Anime</title>
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="NimeStream - Streaming Anime">
+  <meta property="og:description" content="Nonton streaming Solo Leveling subtitle Indonesia kualitas HD 1080p, 720p, 480p tanpa iklan pop-up!">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Schema.org Markup for VideoObject -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Ore dake Level Up na Ken [Solo Leveling] Sub Indo",
+    "description": "Streaming anime Solo Leveling dengan subtitle Indonesia.",
+    "thumbnailUrl": "https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg",
+    "uploadDate": "2024-01-01T00:00:00Z",
+    "duration": "PT30M",
+    "publisher": {
+      "@type": "Organization",
+      "name": "NimeStream",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://example.com/logo.png"
+      }
+    }
+  }
+  </script>
+
   <style>
     body { background-color: #121212; color: white; font-family: Arial, sans-serif; margin: 0; padding: 0; }
     .container { max-width: 1100px; margin: auto; padding: 20px; }
-    .header { text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 20px; }
-    .season-selector { text-align: center; margin-bottom: 20px; }
-    .season-selector button {
+    
+    /* Header, Navigation, Main, Footer */
+    header, nav, main, footer { padding: 10px 0; }
+    
+    header { text-align: center; font-size: 28px; font-weight: bold; }
+    nav { text-align: center; margin-bottom: 20px; }
+    nav button {
       background: #333;
       color: white;
       border: none;
@@ -21,26 +53,30 @@
       cursor: pointer;
       transition: 0.3s;
     }
-    .season-selector button.active, .season-selector button:hover {
+    nav button.active, nav button:hover {
       background: #ff4500;
     }
-    .season-info { text-align: center; margin-bottom: 20px; }
-    .season-info img { width: 100%; max-width: 600px; border-radius: 10px; margin-bottom: 10px; }
-    .video-container { text-align: center; margin-bottom: 20px; }
-    .episode-nav { display: flex; justify-content: space-between; margin-top: 10px; }
-    .btn { background: #ff4500; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: 0.3s ease-in-out; }
-    .btn:hover { background: #ff5722; }
+    
+    main { margin-bottom: 20px; }
+    
     .anime-details { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; }
     .anime-image img { width: 200px; border-radius: 10px; }
     .anime-info { flex-grow: 1; }
     .rating { background: #222; padding: 10px; border-radius: 5px; display: inline-block; }
+    .season-info { text-align: center; margin-bottom: 20px; }
+    .season-info img { width: 100%; max-width: 600px; border-radius: 10px; margin-bottom: 10px; }
+    .video-container { text-align: center; margin-bottom: 20px; position: relative; }
+    .video-container iframe { width: 100%; max-width: 900px; height: 506px; border: none; }
+    .episode-nav { display: flex; justify-content: space-between; margin-top: 10px; }
+    .btn { background: #ff4500; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; transition: 0.3s ease-in-out; }
+    .btn:hover { background: #ff5722; }
     .search-box { margin: 20px 0; text-align: center; }
     .search-box input { padding: 10px; width: 80%; max-width: 400px; border-radius: 5px; border: none; }
     .episode-list { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
     .episode-list a { background: #333; color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; transition: 0.3s ease-in-out; }
     .episode-list a:hover, .episode-list a.active { background: #ff4500; transform: scale(1.05); }
-    .video-container iframe { width: 100%; max-width: 900px; height: 506px; border: none; }
     .resume-btn { display: block; margin: 20px auto; background: #28a745; color: white; padding: 10px 20px; text-align: center; border-radius: 5px; text-decoration: none; }
+    footer { text-align: center; font-size: 14px; margin-top: 40px; }
     /* Responsif untuk layar kecil */
     @media (max-width: 600px) {
       .video-container iframe { max-width: 100%; height: auto; }
@@ -48,57 +84,71 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">NimeStream - Streaming Anime</div>
-    
-    <!-- Informasi dasar anime (poster) -->
-    <div class="anime-details">
-      <div class="anime-image">
-        <img id="anime-poster" src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Solo Leveling Poster" loading="lazy">
-      </div>
-      <div class="anime-info">
-        <h2>Ore dake Level Up na Ken [Solo Leveling] Sub Indo</h2>
-        <p><strong>Genre:</strong> Aksi, Fantasi, Isekai, Petualangan</p>
-        <p><strong>Studio:</strong> A-1 Pictures</p>
-        <div class="rating">⭐ 8.39</div>
-      </div>
+  <header>
+    <div class="container">
+      <h1>NimeStream - Streaming Anime</h1>
     </div>
-    
-    <!-- Selector Season -->
-    <div class="season-selector">
+  </header>
+  
+  <nav>
+    <div class="container">
+      <!-- Season Selector -->
       <button id="btn-s1" class="active">Season 1</button>
       <button id="btn-s2">Season 2</button>
     </div>
-    
-    <!-- Informasi Season -->
-    <div class="season-info" id="season-info">
-      <h3>Season 1</h3>
-      <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>
+  </nav>
+  
+  <main>
+    <div class="container">
+      <!-- Informasi Dasar Anime -->
+      <div class="anime-details">
+        <div class="anime-image">
+          <img id="anime-poster" src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Solo Leveling Poster" loading="lazy">
+        </div>
+        <div class="anime-info">
+          <h2>Ore dake Level Up na Ken [Solo Leveling] Sub Indo</h2>
+          <p><strong>Genre:</strong> Aksi, Fantasi, Isekai, Petualangan</p>
+          <p><strong>Studio:</strong> A-1 Pictures</p>
+          <div class="rating">⭐ 8.39</div>
+        </div>
+      </div>
+      
+      <!-- Informasi Season -->
+      <div class="season-info" id="season-info">
+        <h3>Season 1</h3>
+        <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>
+      </div>
+      
+      <!-- Tombol Resume Episode -->
+      <a id="resume-episode" class="resume-btn" href="#">🔄 Lanjutkan Episode Terakhir</a>
+      
+      <!-- Header Video Episode untuk Season 2 (hanya tampil jika Season 2 aktif) -->
+      <h2 id="video-episode-header" style="display: none; text-align: center;">Video Episode</h2>
+      
+      <!-- Pemutar Video Episode -->
+      <div class="video-container">
+        <iframe id="anime-player" allowfullscreen loading="lazy" allow="autoplay;"></iframe>
+      </div>
+      
+      <!-- Navigasi Episode -->
+      <div class="episode-nav">
+        <a id="prev-episode" href="#" class="btn">◀ Episode Sebelumnya</a>
+        <a id="next-episode" href="#" class="btn">Episode Berikutnya ▶</a>
+      </div>
+      
+      <h2>Daftar Episode</h2>
+      <div class="search-box">
+        <input type="text" id="search-episode" placeholder="Cari episode...">
+      </div>
+      <div class="episode-list" id="episode-list"></div>
     </div>
-    
-    <!-- Tombol Resume Episode -->
-    <a id="resume-episode" class="resume-btn" href="#">🔄 Lanjutkan Episode Terakhir</a>
-    
-    <!-- Header Video Episode untuk Season 2 (hanya tampil jika Season 2 aktif) -->
-    <h2 id="video-episode-header" style="display: none; text-align: center;">Video Episode</h2>
-    
-    <!-- Pemutar Video Episode -->
-    <div class="video-container">
-      <iframe id="anime-player" allowfullscreen loading="lazy" allow="autoplay;"></iframe>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 NimeStream. All rights reserved.</p>
     </div>
-    
-    <!-- Navigasi Episode -->
-    <div class="episode-nav">
-      <a id="prev-episode" href="#" class="btn">◀ Episode Sebelumnya</a>
-      <a id="next-episode" href="#" class="btn">Episode Berikutnya ▶</a>
-    </div>
-    
-    <h2>Daftar Episode</h2>
-    <div class="search-box">
-      <input type="text" id="search-episode" placeholder="Cari episode...">
-    </div>
-    <div class="episode-list" id="episode-list"></div>
-  </div>
+  </footer>
   
   <script>
     // URL poster untuk masing-masing season
@@ -121,16 +171,16 @@
       '12': 'https://mega.nz/embed/BZpjALxA#9Bl_75xizjLGer-xbb9m8qMLbufl10ChJK9Y7JhFmwc!1a'
     };
     
-    // Episode links untuk Season 2 (placeholder links, key '1' sudah diganti dengan link yang Anda berikan)
+    // Episode links untuk Season 2
     var episodeLinks_S2 = {
-      '1': 'https://mega.nz/embed/BRIlQYia#c3V-t6FFiCCd5usrUeuC5NWf1XHLPp1i1fbH5AFZy8Q!1a',
-      '2': 'https://mega.nz/embed/s2_ep2',
-      '3': 'https://mega.nz/embed/s2_ep3',
-      '4': 'https://mega.nz/embed/s2_ep4',
-      '5': 'https://mega.nz/embed/s2_ep5',
-      '6': 'https://mega.nz/embed/s2_ep6',
-      '7': 'https://mega.nz/embed/s2_ep7',
-      '8': 'https://mega.nz/embed/s2_ep8',
+      '1': 'https://mega.nz/embed/BRIlQYia#c3V-t6FFiCCd5usrUeuC5NWf1XHLPp1i1fbH5AFZy8Q!1a', // Episode 1
+      '2': 'https://mega.nz/embed/RZIzlSLZ#pXeSFoaA-U1-1bJlA_Y-rgtToCNNvKpUDURJLzDfQiQ!1a', // Episode 2
+      '3': 'https://mega.nz/embed/tMAXzRiI#lCD-7TZ9bwV_q-ZXCZ63AMSJ16wMTEieyMemYy_nBdU!1a', // Episode 3
+      '4': 'https://mega.nz/embed/sdAxRZxQ#HalE6eTM2ioXEmN0npPpge5B_3rOseINCqb1P2jHs58!1a', // Episode 4
+      '5': 'https://mega.nz/embed/NUwh1AZI#hm05v1roPUgw1v81-928KO7VpmoxCpRQygsNDwZMH3c!1a', // Episode 5
+      '6': 'https://mega.nz/embed/YRwGDSyT#BBYHBlxwn91_7rQoc5B6VYzVH1bf8ky7BA6RtCNocvQ!1a', // Episode 6
+      '7': 'https://mega.nz/embed/Mc43AThS#gAAn_Qy_EXBNi4VskyUGMkSmewcPrkdy4ZywLwJsH8g!1a', // Episode 7
+      '8': 'https://mega.nz/embed/tEASGKCL#6AKZybT3kXPEtsrIH2hoZZtEwZezemLtvKbVjI2wQ7M!1a', // Episode 8
       '9': 'https://mega.nz/embed/s2_ep9',
       '10': 'https://mega.nz/embed/s2_ep10',
       '11': 'https://mega.nz/embed/s2_ep11',
@@ -172,18 +222,47 @@
       });
     }
     
-    // Fungsi untuk memuat episode berdasarkan parameter dan season saat ini
+    // Fungsi untuk memuat episode dengan validasi link & error handling
     function loadEpisode(episode) {
       let links = (currentSeason === 'S1') ? episodeLinks_S1 : episodeLinks_S2;
+      let videoUrl = links[episode] || links['1'];
+      var videoContainer = document.querySelector('.video-container');
+      
+      // Reset konten container (membuang iframe sebelumnya)
+      videoContainer.innerHTML = '<iframe id="anime-player" allowfullscreen loading="lazy" allow="autoplay;"></iframe>';
       var player = document.getElementById("anime-player");
-      player.src = links[episode] || links['1'];
+      
+      let hasLoaded = false;
+      
+      // Timeout untuk fallback UI (misal 10 detik)
+      const timeoutId = setTimeout(() => {
+        if (!hasLoaded) {
+          videoContainer.innerHTML = "<p style='color: red;'>Maaf, video gagal dimuat. Silakan coba episode lain.</p>";
+        }
+      }, 10000);
+      
+      // onload: video berhasil dimuat
+      player.onload = function() {
+        hasLoaded = true;
+        clearTimeout(timeoutId);
+      };
+      
+      // onerror: fallback UI jika terjadi error
+      player.onerror = function() {
+        hasLoaded = false;
+        clearTimeout(timeoutId);
+        videoContainer.innerHTML = "<p style='color: red;'>Maaf, video gagal dimuat. Silakan coba episode lain.</p>";
+      };
+      
+      // Set link video
+      player.src = videoUrl;
+      
       setActiveEpisode(episode);
-      // Simpan season dan episode terakhir di localStorage
       localStorage.setItem("lastSeason", currentSeason);
       localStorage.setItem("lastEpisode", episode);
     }
     
-    // Setup navigasi (prev/next) dan resume
+    // Fungsi untuk setup navigasi (tanpa penambahan event listener untuk resume)
     function setupNavigation() {
       let totalEpisodes = (currentSeason === 'S1') ? Object.keys(episodeLinks_S1).length : Object.keys(episodeLinks_S2).length;
       let currentEpisode = getQueryParam("episode") || localStorage.getItem("lastEpisode") || '1';
@@ -191,15 +270,18 @@
     
       document.getElementById("prev-episode").href = `?season=${currentSeason}&episode=${Math.max(1, parseInt(currentEpisode) - 1)}`;
       document.getElementById("next-episode").href = `?season=${currentSeason}&episode=${Math.min(totalEpisodes, parseInt(currentEpisode) + 1)}`;
-    
-      // Resume button
-      document.getElementById("resume-episode").addEventListener("click", function(e) {
-        e.preventDefault();
-        let lastSeason = localStorage.getItem("lastSeason") || 'S1';
-        let lastEp = localStorage.getItem("lastEpisode") || '1';
-        window.location.search = `?season=${lastSeason}&episode=${lastEp}`;
-      });
     }
+    
+    // Handler untuk tombol resume, dipasang hanya sekali
+    function resumeHandler(e) {
+      e.preventDefault();
+      let lastSeason = localStorage.getItem("lastSeason") || 'S1';
+      let lastEp = localStorage.getItem("lastEpisode") || '1';
+      window.location.search = `?season=${lastSeason}&episode=${lastEp}`;
+    }
+    
+    // Pasang event listener resume satu kali saat inisialisasi
+    document.getElementById("resume-episode").addEventListener("click", resumeHandler);
     
     // Fungsi untuk mengupdate informasi season, poster, dan header video episode
     function updateSeasonInfo() {
@@ -224,7 +306,7 @@
     // Event listener untuk season selector
     document.getElementById("btn-s1").addEventListener("click", function() {
       currentSeason = 'S1';
-      document.getElementById("btn-s1").classList.add("active");
+      this.classList.add("active");
       document.getElementById("btn-s2").classList.remove("active");
       updateSeasonInfo();
       loadEpisodeList();
@@ -233,7 +315,7 @@
     
     document.getElementById("btn-s2").addEventListener("click", function() {
       currentSeason = 'S2';
-      document.getElementById("btn-s2").classList.add("active");
+      this.classList.add("active");
       document.getElementById("btn-s1").classList.remove("active");
       updateSeasonInfo();
       loadEpisodeList();
