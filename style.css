@@ -1,0 +1,6 @@
+body { background-color: #121212; color: white; font-family: Arial, sans-serif; text-align: center; }
+.container { max-width: 800px; margin: auto; padding: 20px; }
+.anime-item { margin: 20px 0; padding: 15px; background: #222; border-radius: 10px; }
+.anime-item img { width: 200px; border-radius: 10px; }
+.anime-item a { text-decoration: none; color: #ff4500; font-size: 20px; font-weight: bold; }
+.btn { background: #ff4500; padding: 10px 20px; border-radius: 5px; color: white; text-decoration: none; }
