@@ -54,7 +54,6 @@
     <!-- Informasi dasar anime (poster) -->
     <div class="anime-details">
       <div class="anime-image">
-        <!-- Gambar poster akan berubah sesuai season -->
         <img id="anime-poster" src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Solo Leveling Poster" loading="lazy">
       </div>
       <div class="anime-info">
@@ -73,19 +72,15 @@
     
     <!-- Informasi Season -->
     <div class="season-info" id="season-info">
-      <!-- Info Season 1 default -->
       <h3>Season 1</h3>
       <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>
     </div>
     
-    <!-- Bagian Trailer (hanya untuk Season 2) -->
-    <div class="video-container" id="season2-trailer" style="display: none;">
-      <h4>Trailer Season 2</h4>
-      <iframe width="640" height="360" src="https://www.youtube.com/embed/KzX3EnACpFc?autoplay=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    
     <!-- Tombol Resume Episode -->
     <a id="resume-episode" class="resume-btn" href="#">🔄 Lanjutkan Episode Terakhir</a>
+    
+    <!-- Header Video Episode untuk Season 2 (hanya tampil jika Season 2 aktif) -->
+    <h2 id="video-episode-header" style="display: none; text-align: center;">Video Episode</h2>
     
     <!-- Pemutar Video Episode -->
     <div class="video-container">
@@ -118,7 +113,6 @@
       '4': 'https://mega.nz/embed/5UQCmIYR#4Lsgd_7srCe5I40zUoAqYruTYSkh6RumVAOocKoD5-g!1a',
       '5': 'https://mega.nz/embed/sEwWjTwZ#MJwYHtqIN7hp_yXCqeIyqACGZtIOVZ-YrKeoGesmBpA!1a',
       '6': 'https://mega.nz/embed/hYxzCLBQ#hfwORuSgBA7kw5_YDlqNQf-YPJhuCbc08jzzzRHQXgA!1a',
-      // Episode 7 dengan link baru
       '7': 'https://mega.nz/embed/xYxjCCKK#IXwLYHqhopYbAH6VZ4ZVv-9RxuoE0OTBgB5VkZicwJA!1a',
       '8': 'https://mega.nz/embed/cdAzCbzY#I5LwEY-QLsk6XkgJ4Fd_fWE403R_wZV6t-lOGb5-lQM!1a',
       '9': 'https://mega.nz/embed/5VxjxJ7A#mOLObws05S43C2hxxoiCAJqkJs-O3ro1LIXdoMP9xeo!1a',
@@ -127,9 +121,9 @@
       '12': 'https://mega.nz/embed/BZpjALxA#9Bl_75xizjLGer-xbb9m8qMLbufl10ChJK9Y7JhFmwc!1a'
     };
     
-    // Episode links untuk Season 2 (placeholder links)
+    // Episode links untuk Season 2 (placeholder links, key '1' sudah diganti dengan link yang Anda berikan)
     var episodeLinks_S2 = {
-      '1': 'https://mega.nz/embed/s2_ep1',
+      '1': 'https://mega.nz/embed/BRIlQYia#c3V-t6FFiCCd5usrUeuC5NWf1XHLPp1i1fbH5AFZy8Q!1a',
       '2': 'https://mega.nz/embed/s2_ep2',
       '3': 'https://mega.nz/embed/s2_ep3',
       '4': 'https://mega.nz/embed/s2_ep4',
@@ -207,24 +201,23 @@
       });
     }
     
-    // Fungsi untuk mengupdate informasi season, poster, dan menampilkan trailer khusus Season 2
+    // Fungsi untuk mengupdate informasi season, poster, dan header video episode
     function updateSeasonInfo() {
       let infoDiv = document.getElementById("season-info");
       let posterImg = document.getElementById("anime-poster");
-      let trailerDiv = document.getElementById("season2-trailer");
       
       if (currentSeason === 'S1') {
         infoDiv.innerHTML = `<h3>Season 1</h3>
           <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>`;
         posterImg.src = poster_S1;
-        trailerDiv.style.display = "none";  // Sembunyikan trailer Season 2
+        document.getElementById("video-episode-header").style.display = "none";
       } else {
         infoDiv.innerHTML = `<h3>Season 2: Arise from the Shadow</h3>
           <p>Episode: 13 Episode (S2) | Premiere: 5 Januari 2025</p>
           <p>Opening: "Reawaker" oleh LiSA (feat. Felix dari Stray Kids) | Ending: "Un-Apex" oleh TK dari Ling Tosite Sigure</p>
           <p>Season 2 melanjutkan perjalanan Sung Jinwoo dengan kekuatan baru dan menghadapi ancaman baru, termasuk adaptasi arc Jeju Island.</p>`;
         posterImg.src = poster_S2;
-        trailerDiv.style.display = "block";  // Tampilkan trailer Season 2
+        document.getElementById("video-episode-header").style.display = "block";
       }
     }
     
