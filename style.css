@@ -1,0 +1,18 @@
+body { background-color: #121212; color: white; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+.container { max-width: 1200px; margin: auto; padding: 20px; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+.logo { font-size: 24px; font-weight: bold; }
+.search-bar input { padding: 8px; border: 1px solid #333; border-radius: 5px; background-color: #333; color: white; }
+nav ul { list-style: none; display: flex; }
+nav ul li { margin-left: 20px; }
+nav ul li a { text-decoration: none; color: white; }
+.filter-section { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+.filter-dropdown { display: flex; align-items: center; }
+.filter-dropdown label { margin-right: 5px; }
+.filter-dropdown select { padding: 5px; background-color: #333; color: white; border: 1px solid #555; border-radius: 5px; }
+.filter-button { padding: 8px 15px; background-color: #ff4500; color: white; border: none; border-radius: 5px; cursor: pointer; }
+.anime-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
+.anime-item { text-align: center; }
+.anime-item img { width: 200px; height: 300px; object-fit: cover; border-radius: 10px; }
+.anime-item a { text-decoration: none; color: white; }
+/* ... (CSS detail anime Solo Leveling dari percakapan sebelumnya) ... */
