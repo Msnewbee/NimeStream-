@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/src/anime", "destination": "/src/anime.html" }
+  ]
+}
