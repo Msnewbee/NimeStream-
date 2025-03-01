@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animasu - Nonton Streaming Anime</title>
-    <link rel="stylesheet" href="style.css">
+    <title>NimeStream - Beranda</title>
+    <style>
+        body { background-color: #121212; color: white; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+        .logo { font-size: 24px; font-weight: bold; }
+        .search-bar input { padding: 8px; border: 1px solid #333; border-radius: 5px; background-color: #333; color: white; }
+        nav ul { list-style: none; display: flex; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: white; }
+        .filter-section { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .filter-dropdown { display: flex; align-items: center; }
+        .filter-dropdown label { margin-right: 5px; }
+        .filter-dropdown select { padding: 5px; background-color: #333; color: white; border: 1px solid #555; border-radius: 5px; }
+        .filter-button { padding: 8px 15px; background-color: #ff4500; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .anime-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
+        .anime-item { text-align: center; }
+        .anime-item img { width: 200px; height: 300px; object-fit: cover; border-radius: 10px; }
+        .anime-item a { text-decoration: none; color: white; }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -59,77 +77,14 @@
              <button class="filter-button">Cari Sesuai Kriteria</button>
         </div>
 
-        <div class="main-content">
-            <aside class="sidebar">
-                <h3>Link Rekomendasi Anime</h3>
-                <ul>
-                    <li><a href="#">Kumpulan Anime Genre Isekai</a></li>
-                    <li><a href="#">Kumpulan Anime Garapan Studio Ghibli</a></li>
-                    <li><a href="#">Kumpulan Anime Karya Makoto Shinkai</a></li>
-                    <li><a href="#">Kumpulan Anime Over Power Lengkap</a></li>
-                    <li><a href="#">Kumpulan Anime Memiliki Karakter Loli</a></li>
-                    <li><a href="#">Kumpulan Anime Berkarakter Couple</a></li>
-                    <li><a href="#">Kumpulan Anime Lawas atau Jadul</a></li>
-                    <li><a href="#">Kumpulan Anime Berdasarkan Tipe Karakter</a></li>
-                    <li><a href="#">Kumpulan Anime Urut Berdasarkan Rating</a></li>
-                    <li><a href="#">Kumpulan Anime Yang Ada di Netflix</a></li>
-                    <li><a href="#">Download APK Animasu Untuk Android</a></li>
-                </ul>
-
-                <h3>Tipe Karakter (MC)</h3>
-                <div class="character-types">
-                    <a href="#">Ambisi</a>
-                    <a href="#">Anak-Anak</a>
-                    <a href="#">Anti-Sosial</a>
-                    <a href="#">Badass</a>
-                    <a href="#">Berbisnis</a>
-                    <a href="#">Berisik</a>
-                    <a href="#">Berjuang</a>
-                    <a href="#">Beruntung</a>
-                    <a href="#">Blakblakan</a>
-                    <a href="#">Bounty Hunter</a>
-                    <a href="#">Cerewet</a>
-                    <a href="#">Ceria</a>
-                    <a href="#">Ceroboh</a>
-                    <a href="#">Cewek</a>
-                    <a href="#">Couple</a>
-                    <a href="#">Dewa</a>
-                    <a href="#">Dikagumi</a>
-                    <a href="#">Ditakuti</a>
-                    <a href="#">Iblis</a>
-                    <a href="#">Kejam</a>
-                    <a href="#">Legenda</a>
-                </div>
-            </aside>
-
-            <main class="anime-list">
-                <h2>Sedang Tayang</h2>
-                <div class="anime-grid">
-                    <div class="anime-item">
-                        <img src="URL_POSTER_ANIME_1" alt="Anime 1">
-                        <h3>Anime 1</h3>
-                        <p>Episode 90</p>
-                    </div>
-                    <div class="anime-item">
-                        <img src="URL_POSTER_ANIME_2" alt="Anime 2">
-                        <h3>Anime 2</h3>
-                        <p>Episode 470</p>
-                    </div>
-                    <div class="anime-item">
-                        <img src="URL_POSTER_ANIME_3" alt="Anime 3">
-                        <h3>Anime 3</h3>
-                        <p>Episode 44</p>
-                    </div>
-                    <div class="anime-item">
-                        <img src="URL_POSTER_ANIME_4" alt="Anime 4">
-                        <h3>Anime 4</h3>
-                        <p>Episode 6</p>
-                    </div>
-                </div>
-                <a href="#" class="view-all">LIHAT SEMUANYA</a>
-            </main>
-        </div>
+        <div class="anime-list">
+            <div class="anime-item">
+                <a href="solo-leveling.html">
+                    <img src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Solo Leveling">
+                    <h3>Solo Leveling</h3>
+                </a>
+            </div>
+            </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
