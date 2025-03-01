@@ -5,10 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NimeStream - Solo Leveling</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container">
+        <div class="header">NimeStream - Streaming Anime</div>
+
+        <div class="anime-details">
+            <div class="anime-image">
+                <img src="images/solo-leveling.jpg" alt="Solo Leveling Poster" loading="lazy" onerror="this.onerror=null; this.src='images/placeholder.jpg'">
+            </div>
+            <div class="anime-info">
+                <h2>Ore dake Level Up na Ken [Solo Leveling] Sub Indo</h2>
+                <p><strong>Genre:</strong> Aksi, Fantasi, Isekai, Petualangan</p>
+                <p><strong>Rilis:</strong> Jan 11, 2024</p>
+                <p><strong>Episode:</strong> 12 Episode (S1)</p>
+                <p><strong>Studio:</strong> A-1 Pictures</p>
+                <div class="rating">⭐ 8.39</div>
+            </div>
         </div>
+
+        <div class="video-container">
+            <iframe id="anime-player" allowfullscreen loading="lazy" onerror="handleVideoError()"></iframe>
+            <div id="video-error" style="display: none; color: red;">Video tidak dapat dimuat. Silakan coba lagi nanti.</div>
+        </div>
+
+        <div class="episode-nav">
+            <a id="prev-episode" href="#" class="btn">◀ Episode Sebelumnya</a>
+            <a id="next-episode" href="#" class="btn">Episode Berikutnya ▶</a>
+        </div>
+
+        <h2>Solo Leveling - Daftar Episode</h2>
+        <div class="episode-list">
+            <a href="?episode=1">S1 - Episode 1</a>
+            <a href="?episode=2">S1 - Episode 2</a>
+            <a href="?episode=3">S1 - Episode 3</a>
+            <a href="?episode=4">S1 - Episode 4</a>
+            <a href="?episode=5">S1 - Episode 5</a>
+            <a href="?episode=6">S1 - Episode 6</a>
+            <a href="?episode=7">S1 - Episode 7</a>
+            <a href="?episode=9">S1 - Episode 9</a>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
