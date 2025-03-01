@@ -7,6 +7,10 @@
   <meta name="keywords" content="Nonton anime, Solo Leveling, Streaming anime sub indo, anime terbaru">
   <title>NimeStream - Streaming Anime</title>
   
+  <!-- Google AdSense Script untuk Auto Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1357574968133580"
+     crossorigin="anonymous"></script>
+  
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="NimeStream - Streaming Anime">
   <meta property="og:description" content="Nonton streaming Solo Leveling subtitle Indonesia kualitas HD 1080p, 720p, 480p tanpa iklan pop-up!">
@@ -75,6 +79,7 @@
     .episode-list { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
     .episode-list a { background: #333; color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; transition: 0.3s ease-in-out; }
     .episode-list a:hover, .episode-list a.active { background: #ff4500; transform: scale(1.05); }
+    .ads-container { text-align: center; margin: 20px 0; }
     .resume-btn { display: block; margin: 20px auto; background: #28a745; color: white; padding: 10px 20px; text-align: center; border-radius: 5px; text-decoration: none; }
     footer { text-align: center; font-size: 14px; margin-top: 40px; }
     /* Responsif untuk layar kecil */
@@ -128,6 +133,19 @@
       <!-- Pemutar Video Episode -->
       <div class="video-container">
         <iframe id="anime-player" allowfullscreen loading="lazy" allow="autoplay;"></iframe>
+      </div>
+      
+      <!-- Unit Iklan Google AdSense (Contoh banner responsif) -->
+      <div class="ads-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-format="auto"
+             data-full-width-responsive="true"
+             data-ad-client="ca-pub-1357574968133580"
+             data-ad-slot="1234567890"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </div>
       
       <!-- Navigasi Episode -->
