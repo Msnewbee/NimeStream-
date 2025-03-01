@@ -1,10 +1,7 @@
-// script.js
-
-// URL poster untuk masing-masing season
+// Data untuk Solo Leveling
 var poster_S1 = "https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg";
 var poster_S2 = "https://sololeveling-anime.net/assets/img/top/kv_shun.png";
 
-// Episode links untuk Season 1
 var episodeLinks_S1 = {
   '1': 'https://mega.nz/embed/wVQESDiL#rWrzrxNp6Ip17-s-dICc2iaMr73T5Pic5Ep563F3vlY!1a',
   '2': 'https://mega.nz/embed/gA5VnRBL#7RQII5KdmoV-Tj4OwaBOJ3ncg7q70Et7K86OE4WLPA0!1a',
@@ -20,7 +17,6 @@ var episodeLinks_S1 = {
   '12': 'https://mega.nz/embed/BZpjALxA#9Bl_75xizjLGer-xbb9m8qMLbufl10ChJK9Y7JhFmwc!1a'
 };
 
-// Episode links untuk Season 2
 var episodeLinks_S2 = {
   '1': 'https://mega.nz/embed/BRIlQYia#c3V-t6FFiCCd5usrUeuC5NWf1XHLPp1i1fbH5AFZy8Q!1a',
   '2': 'https://mega.nz/embed/RZIzlSLZ#pXeSFoaA-U1-1bJlA_Y-rgtToCNNvKpUDURJLzDfQiQ!1a',
@@ -37,26 +33,103 @@ var episodeLinks_S2 = {
   '13': 'https://mega.nz/embed/s2_ep13'
 };
 
+// Data untuk Demon Slayer
+var dsInfo = {
+  title: "Demon Slayer: Kimetsu no Yaiba Sub Indo",
+  genre: "Action, Dark Fantasy, Historical, Supernatural, Demons",
+  studio: "Ufotable",
+  rating: "8.5",
+  poster: "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
+  season1: {
+    description: "Episode: 26 Episode | Rilis: April – September 2019",
+    episodeLinks: {
+      '1': 'https://mega.nz/embed/ds_ep1',
+      '2': 'https://mega.nz/embed/ds_ep2',
+      // Tambahkan link episode 3 sampai 25 sesuai kebutuhan...
+      '26': 'https://mega.nz/embed/ds_ep26'
+    }
+  },
+  season2: {
+    title: "Entertainment District Arc",
+    description: "Episode: 11 Episode | Rilis: Oktober 2021",
+    episodeLinks: {
+      '1': 'https://mega.nz/embed/ds2_ep1',
+      '2': 'https://mega.nz/embed/ds2_ep2',
+      // Tambahkan link episode 3 sampai 10 sesuai kebutuhan...
+      '11': 'https://mega.nz/embed/ds2_ep11'
+    }
+  }
+};
+
+// Variabel untuk melacak anime dan season yang aktif
+var currentAnime = 'solo'; // 'solo' atau 'ds'
 var currentSeason = 'S1';
 
-function loadEpisodeList() {
-  let listContainer = document.getElementById("episode-list");
-  listContainer.innerHTML = '';
-  let links = (currentSeason === 'S1') ? episodeLinks_S1 : episodeLinks_S2;
-  Object.keys(links).forEach(num => {
-    let link = document.createElement("a");
-    link.href = `?season=${currentSeason}&episode=${num}`;
-    link.textContent = `${(currentSeason === 'S1') ? 'S1' : 'S2'} - Episode ${num}`;
-    link.dataset.episode = num;
-    listContainer.appendChild(link);
-  });
-}
-
+// Fungsi untuk mengambil parameter URL
 function getQueryParam(param) {
   const params = new URLSearchParams(window.location.search);
   return params.get(param);
 }
 
+// Fungsi untuk mengupdate tampilan berdasarkan anime yang dipilih
+function updateAnimeInfo() {
+  var titleElem = document.querySelector("header h1");
+  var animeInfoElem = document.querySelector(".anime-info");
+  var posterImg = document.getElementById("anime-poster");
+  var infoDiv = document.getElementById("season-info");
+
+  if (currentAnime === 'solo') {
+    titleElem.textContent = "NimeStream - Streaming Anime";
+    animeInfoElem.innerHTML = `
+      <h2>Ore dake Level Up na Ken [Solo Leveling] Sub Indo</h2>
+      <p><strong>Genre:</strong> Aksi, Fantasi, Isekai, Petualangan</p>
+      <p><strong>Studio:</strong> A-1 Pictures</p>
+      <div class="rating">⭐ 8.39</div>
+    `;
+    posterImg.src = poster_S1;
+    infoDiv.innerHTML = `<h3>Season 1</h3>
+      <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>`;
+  } else if (currentAnime === 'ds') {
+    titleElem.textContent = "NimeStream - Streaming Anime";
+    animeInfoElem.innerHTML = `
+      <h2>${dsInfo.title}</h2>
+      <p><strong>Genre:</strong> ${dsInfo.genre}</p>
+      <p><strong>Studio:</strong> ${dsInfo.studio}</p>
+      <div class="rating">⭐ ${dsInfo.rating}</div>
+    `;
+    posterImg.src = dsInfo.poster;
+    if (currentSeason === 'S1') {
+      infoDiv.innerHTML = `<h3>Season 1</h3>
+        <p>${dsInfo.season1.description}</p>`;
+    } else {
+      infoDiv.innerHTML = `<h3>Season 2: ${dsInfo.season2.title}</h3>
+        <p>${dsInfo.season2.description}</p>`;
+    }
+  }
+  loadEpisodeList();
+  setupNavigation();
+}
+
+// Fungsi untuk memuat daftar episode
+function loadEpisodeList() {
+  let listContainer = document.getElementById("episode-list");
+  listContainer.innerHTML = '';
+  let links;
+  if (currentAnime === 'solo') {
+    links = (currentSeason === 'S1') ? episodeLinks_S1 : episodeLinks_S2;
+  } else if (currentAnime === 'ds') {
+    links = (currentSeason === 'S1') ? dsInfo.season1.episodeLinks : dsInfo.season2.episodeLinks;
+  }
+  Object.keys(links).forEach(num => {
+    let link = document.createElement("a");
+    link.href = `?anime=${currentAnime}&season=${currentSeason}&episode=${num}`;
+    link.textContent = `${currentSeason} - Episode ${num}`;
+    link.dataset.episode = num;
+    listContainer.appendChild(link);
+  });
+}
+
+// Fungsi untuk menetapkan episode aktif
 function setActiveEpisode(episode) {
   document.querySelectorAll(".episode-list a").forEach(link => {
     if (link.dataset.episode === episode) {
@@ -67,8 +140,14 @@ function setActiveEpisode(episode) {
   });
 }
 
+// Fungsi untuk memuat episode
 function loadEpisode(episode) {
-  let links = (currentSeason === 'S1') ? episodeLinks_S1 : episodeLinks_S2;
+  let links;
+  if (currentAnime === 'solo') {
+    links = (currentSeason === 'S1') ? episodeLinks_S1 : episodeLinks_S2;
+  } else if (currentAnime === 'ds') {
+    links = (currentSeason === 'S1') ? dsInfo.season1.episodeLinks : dsInfo.season2.episodeLinks;
+  }
   let videoUrl = links[episode] || links['1'];
   var videoContainer = document.querySelector('.video-container');
   videoContainer.innerHTML = '<iframe id="anime-player" allowfullscreen loading="lazy" allow="autoplay;"></iframe>';
@@ -94,66 +173,75 @@ function loadEpisode(episode) {
   localStorage.setItem("lastEpisode", episode);
 }
 
+// Fungsi untuk mengatur navigasi episode
 function setupNavigation() {
-  let totalEpisodes = (currentSeason === 'S1') ? Object.keys(episodeLinks_S1).length : Object.keys(episodeLinks_S2).length;
+  let links;
+  if (currentAnime === 'solo') {
+    links = (currentSeason === 'S1') ? episodeLinks_S1 : episodeLinks_S2;
+  } else if (currentAnime === 'ds') {
+    links = (currentSeason === 'S1') ? dsInfo.season1.episodeLinks : dsInfo.season2.episodeLinks;
+  }
+  let totalEpisodes = Object.keys(links).length;
   let currentEpisode = getQueryParam("episode") || localStorage.getItem("lastEpisode") || '1';
   loadEpisode(currentEpisode);
-  document.getElementById("prev-episode").href = `?season=${currentSeason}&episode=${Math.max(1, parseInt(currentEpisode) - 1)}`;
-  document.getElementById("next-episode").href = `?season=${currentSeason}&episode=${Math.min(totalEpisodes, parseInt(currentEpisode) + 1)}`;
+  document.getElementById("prev-episode").href = `?anime=${currentAnime}&season=${currentSeason}&episode=${Math.max(1, parseInt(currentEpisode) - 1)}`;
+  document.getElementById("next-episode").href = `?anime=${currentAnime}&season=${currentSeason}&episode=${Math.min(totalEpisodes, parseInt(currentEpisode) + 1)}`;
 }
 
-function resumeHandler(e) {
+// Event listener untuk tombol resume episode
+document.getElementById("resume-episode").addEventListener("click", function(e) {
   e.preventDefault();
   let lastSeason = localStorage.getItem("lastSeason") || 'S1';
   let lastEp = localStorage.getItem("lastEpisode") || '1';
-  window.location.search = `?season=${lastSeason}&episode=${lastEp}`;
-}
-document.getElementById("resume-episode").addEventListener("click", resumeHandler);
+  window.location.search = `?anime=${currentAnime}&season=${lastSeason}&episode=${lastEp}`;
+});
 
-function updateSeasonInfo() {
-  let infoDiv = document.getElementById("season-info");
-  let posterImg = document.getElementById("anime-poster");
-  if (currentSeason === 'S1') {
-    infoDiv.innerHTML = `<h3>Season 1</h3>
-      <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>`;
-    posterImg.src = poster_S1;
-    document.getElementById("video-episode-header").style.display = "none";
-  } else {
-    infoDiv.innerHTML = `<h3>Season 2: Arise from the Shadow</h3>
-      <p>Episode: 13 Episode (S2) | Premiere: 5 Januari 2025</p>
-      <p>Opening: "Reawaker" oleh LiSA (feat. Felix dari Stray Kids) | Ending: "Un-Apex" oleh TK dari Ling Tosite Sigure</p>
-      <p>Season 2 melanjutkan perjalanan Sung Jinwoo dengan kekuatan baru dan menghadapi ancaman baru, termasuk adaptasi arc Jeju Island.</p>`;
-    posterImg.src = poster_S2;
-    document.getElementById("video-episode-header").style.display = "block";
-  }
-}
-
+// Event listener untuk tombol season
 document.getElementById("btn-s1").addEventListener("click", function() {
   currentSeason = 'S1';
   this.classList.add("active");
   document.getElementById("btn-s2").classList.remove("active");
-  updateSeasonInfo();
-  loadEpisodeList();
-  setupNavigation();
+  updateAnimeInfo();
 });
-
 document.getElementById("btn-s2").addEventListener("click", function() {
   currentSeason = 'S2';
   this.classList.add("active");
   document.getElementById("btn-s1").classList.remove("active");
-  updateSeasonInfo();
-  loadEpisodeList();
-  setupNavigation();
+  updateAnimeInfo();
 });
 
+// Event listener untuk pemilihan anime
+document.getElementById("btn-solo").addEventListener("click", function() {
+  currentAnime = 'solo';
+  currentSeason = 'S1'; // reset season
+  this.classList.add("active");
+  document.getElementById("btn-ds").classList.remove("active");
+  updateAnimeInfo();
+});
+document.getElementById("btn-ds").addEventListener("click", function() {
+  currentAnime = 'ds';
+  currentSeason = 'S1'; // reset season
+  this.classList.add("active");
+  document.getElementById("btn-solo").classList.remove("active");
+  updateAnimeInfo();
+});
+
+// Inisialisasi awal
 (function init() {
-  let seasonParam = getQueryParam("season");
-  if (seasonParam && seasonParam.toUpperCase() === "S2") {
-    currentSeason = "S2";
-    document.getElementById("btn-s2").classList.add("active");
-    document.getElementById("btn-s1").classList.remove("active");
+  let animeParam = getQueryParam("anime");
+  if (animeParam && (animeParam === 'ds' || animeParam === 'solo')) {
+    currentAnime = animeParam;
+    if (currentAnime === 'ds') {
+      document.getElementById("btn-ds").classList.add("active");
+      document.getElementById("btn-solo").classList.remove("active");
+    } else {
+      document.getElementById("btn-solo").classList.add("active");
+      document.getElementById("btn-ds").classList.remove("active");
+    }
   }
-  updateSeasonInfo();
-  loadEpisodeList();
-  setupNavigation();
+  let seasonParam = getQueryParam("season");
+  if (seasonParam) {
+    currentSeason = seasonParam.toUpperCase();
+  }
+  updateAnimeInfo();
 })();
