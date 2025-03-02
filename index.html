@@ -16,7 +16,7 @@
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="NimeStream - Streaming Anime">
   <meta property="og:description" content="Nonton streaming anime subtitle Indonesia dengan kualitas HD tanpa iklan pop-up!">
-  <meta property="og:image" content="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Msnewbee/NimeStream-/main/solo-leveling.jpg">
   <meta property="og:type" content="website">
 
   <!-- Schema.org Markup for VideoObject -->
@@ -26,7 +26,7 @@
     "@type": "VideoObject",
     "name": "Ore dake Level Up na Ken [Solo Leveling] Sub Indo",
     "description": "Streaming anime Solo Leveling dengan subtitle Indonesia.",
-    "thumbnailUrl": "https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg",
+    "thumbnailUrl": "https://raw.githubusercontent.com/Msnewbee/NimeStream-/main/solo-leveling.jpg",
     "uploadDate": "2024-01-01T00:00:00Z",
     "duration": "PT30M",
     "publisher": {
@@ -50,16 +50,16 @@
     <div class="container">
       <!-- Menu Pemilihan Anime -->
       <div class="anime-selection" style="text-align: center; margin-bottom: 20px;">
-        <button id="btn-solo" class="anime-btn active">
-          <img src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Solo Leveling">
+        <button id="btn-solo" class="anime-btn active" aria-label="Select Solo Leveling">
+          <img src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/main/solo-leveling.jpg" alt="Solo Leveling Poster">
         </button>
-        <button id="btn-ds" class="anime-btn">
-          <img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg" alt="Demon Slayer">
+        <button id="btn-ds" class="anime-btn" aria-label="Select Demon Slayer">
+          <img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg" alt="Demon Slayer Poster">
         </button>
       </div>
       <!-- Season Selector -->
-      <button id="btn-s1" class="active">Season 1</button>
-      <button id="btn-s2">Season 2</button>
+      <button id="btn-s1" class="btn active" aria-label="Select Season 1">Season 1</button>
+      <button id="btn-s2" class="btn" aria-label="Select Season 2">Season 2</button>
     </div>
   </nav>
   <main>
@@ -67,7 +67,7 @@
       <!-- Informasi Dasar Anime -->
       <div class="anime-details">
         <div class="anime-image">
-          <img id="anime-poster" src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/352f2dc133b07f0d6384f7cccd6b34a9274db82a/solo-leveling.jpg.jpg" alt="Anime Poster" loading="lazy">
+          <img id="anime-poster" src="https://raw.githubusercontent.com/Msnewbee/NimeStream-/main/solo-leveling.jpg" alt="Poster of Ore dake Level Up na Ken [Solo Leveling]" loading="lazy">
         </div>
         <div class="anime-info">
           <h2>Ore dake Level Up na Ken [Solo Leveling] Sub Indo</h2>
@@ -82,7 +82,7 @@
         <p>Episode: 12 Episode (S1) | Rilis: Januari – Maret 2024</p>
       </div>
       <!-- Tombol Resume Episode -->
-      <a id="resume-episode" class="resume-btn" href="#">Lanjutkan Episode Terakhir</a>
+      <a id="resume-episode" class="btn resume-btn" href="#" aria-label="Resume last episode">Lanjutkan Episode Terakhir</a>
       <!-- Header Video Episode (tampil bila Season 2 aktif) -->
       <h2 id="video-episode-header" style="display: none; text-align: center;">Video Episode</h2>
       <!-- Pemutar Video Episode -->
@@ -103,12 +103,12 @@
       </div>
       <!-- Navigasi Episode -->
       <div class="episode-nav">
-        <a id="prev-episode" href="#" class="btn">◀ Episode Sebelumnya</a>
-        <a id="next-episode" href="#" class="btn">Episode Berikutnya ▶</a>
+        <a id="prev-episode" href="#" class="btn" aria-label="Previous episode">◀ Episode Sebelumnya</a>
+        <a id="next-episode" href="#" class="btn" aria-label="Next episode">Episode Berikutnya ▶</a>
       </div>
       <h2>Daftar Episode</h2>
       <div class="search-box">
-        <input type="text" id="search-episode" placeholder="Cari episode...">
+        <input type="text" id="search-episode" class="btn search-input" placeholder="Cari episode..." aria-label="Search episode">
       </div>
       <div class="episode-list" id="episode-list"></div>
     </div>
