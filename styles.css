@@ -45,6 +45,29 @@ nav button:hover {
   background: #ff4500;
 }
 
+nav .anime-btn {
+  background: none;
+  padding: 0;
+  border: none;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+nav .anime-btn img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+nav .anime-btn.active img,
+nav .anime-btn:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
+}
+
 main {
   margin-bottom: 20px;
 }
