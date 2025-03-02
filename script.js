@@ -66,29 +66,4 @@ var dsInfo = {
       '21': 'Episode belum dirilis',
       '22': 'Episode belum dirilis',
       '23': 'Episode belum dirilis',
-      '24': 'Episode belum dirilis',
-      '25': 'Episode belum dirilis',
-      '26': 'https://mega.nz/embed/ds_ep26'
-    }
-  },
-  season2: {
-    title: "Entertainment District Arc",
-    description: "Episode: 11 Episode | Rilis: Oktober 2021",
-    episodeLinks: {
-      '1': 'https://mega.nz/embed/ds2_ep1',
-      '2': 'https://mega.nz/embed/ds2_ep2',
-      '3': 'Episode belum dirilis',
-      '4': 'Episode belum dirilis',
-      '5': 'Episode belum dirilis',
-      '6': 'Episode belum dirilis',
-      '7': 'Episode belum dirilis',
-      '8': 'Episode belum dirilis',
-      '9': 'Episode belum dirilis',
-      '10': 'Episode belum dirilis',
-      '11': 'https://mega.nz/embed/ds2_ep11'
-    }
-  }
-};
-
-// Variabel untuk melacak anime dan season yang aktif
-var
+      '24': 'Episode belum
