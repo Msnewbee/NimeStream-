@@ -1,5 +1,0 @@
-# Prevent hotlinking
-RewriteEngine On
-RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^https://(www\.)?nimestream\.com/ [NC]
-RewriteRule \.(mp4|webm|ogv)$ - [F,NC,L]
