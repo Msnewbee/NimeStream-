@@ -133,6 +133,9 @@ main {
   text-decoration: none;
   border-radius: 5px;
   transition: 0.3s ease-in-out;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn:hover {
@@ -144,11 +147,9 @@ main {
   text-align: center;
 }
 
-.search-box input {
-  padding: 10px;
+.search-box .search-input {
   width: 80%;
   max-width: 400px;
-  border-radius: 5px;
   border: none;
 }
 
@@ -181,14 +182,7 @@ main {
 }
 
 .resume-btn {
-  display: block;
-  margin: 20px auto;
   background: #28a745;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  border-radius: 5px;
-  text-decoration: none;
 }
 
 footer {
