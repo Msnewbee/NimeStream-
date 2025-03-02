@@ -78,4 +78,4 @@ function updateAnimeInfo() {
   var posterImg = document.getElementById("anime-poster");
   var infoDiv = document.getElementById("season-info");
 
-  if (currentAnime === 'solo')
+  if (currentAnime === '
