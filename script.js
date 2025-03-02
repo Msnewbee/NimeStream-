@@ -1,31 +1,31 @@
 // Data untuk Solo Leveling
-var posterS1 = "https://raw.githubusercontent.com/Msnewbee/NimeStream-/main/solo-leveling.jpg";
-var posterS2 = "https://sololeveling-anime.net/assets/img/top/kv_shun.png";
+const posterS1 = "https://nimestream.com/assets/solo-leveling.jpg";
+const posterS2 = "https://sololeveling-anime.net/assets/img/top/kv_shun.png";
 
-var episodeLinksS1 = {
-  '1': 'https://mega.nz/embed/wVQESDiL#rWrzrxNp6Ip17-s-dICc2iaMr73T5Pic5Ep563F3vlY!1a',
-  '2': 'https://mega.nz/embed/gA5VnRBL#7RQII5KdmoV-Tj4OwaBOJ3ncg7q70Et7K86OE4WLPA0!1a',
-  '3': 'https://mega.nz/embed/9d43yZgA#JfeYXtCuhCNDbxejLHRDkeTdW3nRK1Xz5RC1sAowfL4!1a',
-  '4': 'https://mega.nz/embed/5UQCmIYR#4Lsgd_7srCe5I40zUoAqYruTYSkh6RumVAOocKoD5-g!1a',
-  '5': 'https://mega.nz/embed/sEwWjTwZ#MJwYHtqIN7hp_yXCqeIyqACGZtIOVZ-YrKeoGesmBpA!1a',
-  '6': 'https://mega.nz/embed/hYxzCLBQ#hfwORuSgBA7kw5_YDlqNQf-YPJhuCbc08jzzzRHQXgA!1a',
-  '7': 'https://mega.nz/embed/xYxjCCKK#IXwLYHqhopYbAH6VZ4ZVv-9RxuoE0OTBgB5VkZicwJA!1a',
-  '8': 'https://mega.nz/embed/cdAzCbzY#I5LwEY-QLsk6XkgJ4Fd_fWE403R_wZV6t-lOGb5-lQM!1a',
-  '9': 'https://mega.nz/embed/5VxjxJ7A#mOLObws05S43C2hxxoiCAJqkJs-O3ro1LIXdoMP9xeo!1a',
-  '10': 'https://mega.nz/embed/Mcp3jbJI#bwfSBck90h_u0X050bXrQF5k7KZVnNR4hY_1HN4EaNI!1a',
-  '11': 'https://mega.nz/embed/4N5mTQyZ#1P2XC3_DohVFY_d1wpR80Zf1U0ORhXwX7wG7298rSg0!1a',
-  '12': 'https://mega.nz/embed/BZpjALxA#9Bl_75xizjLGer-xbb9m8qMLbufl10ChJK9Y7JhFmwc!1a'
+const episodeLinksS1 = {
+  '1': 'wVQESDiL',
+  '2': 'gA5VnRBL',
+  '3': '9d43yZgA',
+  '4': '5UQCmIYR',
+  '5': 'sEwWjTwZ',
+  '6': 'hYxzCLBQ',
+  '7': 'xYxjCCKK',
+  '8': 'cdAzCbzY',
+  '9': '5VxjxJ7A',
+  '10': 'Mcp3jbJI',
+  '11': '4N5mTQyZ',
+  '12': 'BZpjALxA'
 };
 
-var episodeLinksS2 = {
-  '1': 'https://mega.nz/embed/BRIlQYia#c3V-t6FFiCCd5usrUeuC5NWf1XHLPp1i1fbH5AFZy8Q!1a',
-  '2': 'https://mega.nz/embed/RZIzlSLZ#pXeSFoaA-U1-1bJlA_Y-rgtToCNNvKpUDURJLzDfQiQ!1a',
-  '3': 'https://mega.nz/embed/tMAXzRiI#lCD-7TZ9bwV_q-ZXCZ63AMSJ16wMTEieyMemYy_nBdU!1a',
-  '4': 'https://mega.nz/embed/sdAxRZxQ#HalE6eTM2ioXEmN0npPpge5B_3rOseINCqb1P2jHs58!1a',
-  '5': 'https://mega.nz/embed/NUwh1AZI#hm05v1roPUgw1v81-928KO7VpmoxCpRQygsNDwZMH3c!1a',
-  '6': 'https://mega.nz/embed/YRwGDSyT#BBYHBlxwn91_7rQoc5B6VYzVH1bf8ky7BA6RtCNocvQ!1a',
-  '7': 'https://mega.nz/embed/Mc43AThS#gAAn_Qy_EXBNi4VskyUGMkSmewcPrkdy4ZywLwJsH8g!1a',
-  '8': 'https://mega.nz/embed/tEASGKCL#6AKZybT3kXPEtsrIH2hoZZtEwZezemLtvKbVjI2wQ7M!1a',
+const episodeLinksS2 = {
+  '1': 'BRIlQYia',
+  '2': 'RZIzlSLZ',
+  '3': 'tMAXzRiI',
+  '4': 'sdAxRZxQ',
+  '5': 'NUwh1AZI',
+  '6': 'YRwGDSyT',
+  '7': 'Mc43AThS',
+  '8': 'tEASGKCL',
   '9': 'Episode belum dirilis',
   '10': 'Episode belum dirilis',
   '11': 'Episode belum dirilis',
@@ -34,7 +34,7 @@ var episodeLinksS2 = {
 };
 
 // Data untuk Demon Slayer
-var dsInfo = {
+const dsInfo = {
   title: "Demon Slayer: Kimetsu no Yaiba Sub Indo",
   genre: "Action, Dark Fantasy, Historical, Supernatural, Demons",
   studio: "Ufotable",
@@ -43,8 +43,8 @@ var dsInfo = {
   season1: {
     description: "Episode: 26 Episode | Rilis: April – September 2019",
     episodeLinks: {
-      '1': 'https://mega.nz/embed/ds_ep1',
-      '2': 'https://mega.nz/embed/ds_ep2',
+      '1': 'ds_ep1',
+      '2': 'ds_ep2',
       '3': 'Episode belum dirilis',
       '4': 'Episode belum dirilis',
       '5': 'Episode belum dirilis',
@@ -66,4 +66,24 @@ var dsInfo = {
       '21': 'Episode belum dirilis',
       '22': 'Episode belum dirilis',
       '23': 'Episode belum dirilis',
-      '24': 'Episode belum
+      '24': 'Episode belum dirilis',
+      '25': 'Episode belum dirilis',
+      '26': 'Episode belum dirilis'
+    }
+  }
+};
+
+// Fetch token and play video
+async function playVideo(videoId) {
+  const response = await fetch(`/get-token/${videoId}`);
+  const data = await response.json();
+  const token = data.token;
+  const videoPlayer = document.getElementById('anime-player');
+  videoPlayer.src = `/video/${videoId}?token=${token}`;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Example usage
+  const videoId = episodeLinksS1['1']; // Replace with dynamic video ID
+  playVideo(videoId);
+});
